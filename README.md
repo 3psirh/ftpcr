@@ -7,7 +7,7 @@ Comand|Example                             |Description
    
 **Full Example:**
 
-192.168.0.101 filewithpasswords.txt -p 2221 -pr 127.0.0.1:80;http -th 120
+192.168.0.101 filewithpasswords.txt -p 2221 -pr http;127.0.0.1:80 -th 120
 
 ***ftpcr can read only such lines:***
 
