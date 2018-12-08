@@ -8,17 +8,21 @@ try:
 except KeyboardInterrupt:
     print("Bye!")
     raise SystemExit
-
-print(inp)
-port = 2221
+    
+port = 21
 th_num = 5
+login = "anonymous"
+password = "anonymous"
 server = inp[0]
+
+#threads
 if "-th" in inp:
     try:
         th_num = int(inp[inp.index("-th") + 1])
     except ValueError:
         print("You didn't write threads number")
         raise SystemExit
+#ports        
 if "-p" in inp:
     try:
         port = int(inp[inp.index("-p") + 1])
@@ -26,6 +30,7 @@ if "-p" in inp:
         print("You didn't write port number")
         raise SystemExit
 if "-pr" in inp:
+    #proxy
     ur.install_opener(ur.build_opener(
         ur.ProxyHandler({
             inp[inp.index("-pr") + 1].split(";")[0]: inp[inp.index("-pr") + 1].split(";")[1]})))
@@ -35,17 +40,7 @@ except IndexError:
     print("File not found!")
     raise SystemExit
 
-
-def simple_connection(server, port):
-    try:
-        ftp = ftplib.FTP()
-        ftp.connect(host=server, port=port)
-        ftp.quit()
-        print("This ftp-server doesn't have a password and login")
-        raise SystemExit
-    except:
-        pass
-
+#connect to a server
 def connect(login, password, port, server):
     try:
         ft = ftplib.FTP()
@@ -75,7 +70,7 @@ def func(port, filepass):
         password = line.split(":")[1].replace("\n", "")
         connect(login, password, port, server)
 
-
+#Threads
 if __name__ == '__main__':
     print("[I] START")
     simple_connection(server, port)
