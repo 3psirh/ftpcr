@@ -73,7 +73,6 @@ def func(port, filepass):
 #Threads
 if __name__ == '__main__':
     print("[I] START")
-    simple_connection(server, port)
     th = (Th.Thread(target=func, args=[port, filepass]) for i in range(th_num))
     for t in th:
         t.start()
