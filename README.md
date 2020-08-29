@@ -1,13 +1,14 @@
 # Help
 Comand|Example                             |Description
 ------|------------------------------------|-------------------------------
-   -p |Example (-p 2221)                   |port
-   -pr|Example (-p http(s);15.15.15.15:15) |proxy
-   -th|Example (-th 20)                    |threads. The number of threads is 5 without this command
+   -p |-p *2221*                           |port
+   -th|-th *20*                            |threads. Default number - 5
+   -f |-f *file.txt*                       |file
+   -s |-s *127.0.0.1*                      |victim's server
    
 **Full Example:**
 
-192.168.0.101 filewithpasswords.txt -p 2221 -pr http;127.0.0.1:80 -th 120
+$ ftpcr.py -s 192.168.0.101 -f filewithpasswords.txt -p 2221 -th 120
 
 ***ftpcr can read only such lines:***
 
